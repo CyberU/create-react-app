@@ -33,6 +33,8 @@ function ensureSlash(inputPath, needsSlash) {
 const getPublicUrl = appPackageJson =>
   envPublicUrl || require(appPackageJson).homepage;
 
+console.log('webpack PUBLIC_URL'. getPublicUrl);
+
 // We use `PUBLIC_URL` environment variable or "homepage" field to infer
 // "public path" at which the app is served.
 // Webpack needs to know it to put the right <script> hrefs into HTML even in

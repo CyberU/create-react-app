@@ -146,7 +146,7 @@ module.exports = function(webpackEnv) {
     return loaders;
   };
 
-  return {
+  const webpackConfig = {
     mode: isEnvProduction ? 'production' : isEnvDevelopment && 'development',
     // Stop compilation early in production
     bail: isEnvProduction,
@@ -739,4 +739,10 @@ module.exports = function(webpackEnv) {
     // our own hints via the FileSizeReporter
     performance: false,
   };
+
+  console.log('-------------- webpack config --------------');
+  console.log(webpackConfig);
+  console.log('------------end webpack config -------------');
+
+  return webpackConfig;
 };
