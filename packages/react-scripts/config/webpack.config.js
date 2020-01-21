@@ -33,6 +33,7 @@ const ModuleNotFoundPlugin = require('react-dev-utils/ModuleNotFoundPlugin');
 const ForkTsCheckerWebpackPlugin = require('react-dev-utils/ForkTsCheckerWebpackPlugin');
 const typescriptFormatter = require('react-dev-utils/typescriptFormatter');
 const chalk = require('chalk');
+const Print = '@base2/pretty-print-object';
 // @remove-on-eject-begin
 const eslint = require('eslint');
 const getCacheIdentifier = require('react-dev-utils/getCacheIdentifier');
@@ -741,9 +742,9 @@ module.exports = function(webpackEnv) {
     performance: false,
   };
 
-  console.log(chalk.blue('-------------- webpack config --------------'));
-  console.log(chalk.blue(webpackConfig));
-  console.log(chalk.blue('------------end webpack config -------------'));
+  console.log(chalk.green('-------------- webpack config --------------'));
+  console.log(chalk.green(Print.prettyPrint(webpackConfig)));
+  console.log(chalk.green('------------end webpack config -------------'));
 
   return webpackConfig;
 };
