@@ -11,6 +11,7 @@
 const path = require('path');
 const fs = require('fs');
 const url = require('url');
+const chalk = require('chalk');
 
 // Make sure any symlinks in the project folder are resolved:
 // https://github.com/facebook/create-react-app/issues/637
@@ -33,7 +34,7 @@ function ensureSlash(inputPath, needsSlash) {
 const getPublicUrl = appPackageJson =>
   envPublicUrl || require(appPackageJson).homepage;
 
-console.log('cyberu create react app \n PUBLIC_URL', getPublicUrl);
+console.log(chalk.magenta('cyberu create react app \n PUBLIC_URL:', process.env.PUBLIC_URL));
 
 // We use `PUBLIC_URL` environment variable or "homepage" field to infer
 // "public path" at which the app is served.
@@ -129,14 +130,14 @@ const reactScriptsLinked =
   fs.existsSync(reactScriptsPath) &&
   fs.lstatSync(reactScriptsPath).isSymbolicLink();
 
-console.log('reactScriptsLinked', reactScriptsLinked);
+console.log(chalk.magenta(`reactScriptsLinked: ${reactScriptsLinked}`));
 
 // config before publish: we're in ./packages/react-scripts/config/
 if (
   !reactScriptsLinked &&
   __dirname.indexOf(path.join('packages', 'react-scripts', 'config')) !== -1
 ) {
-  console.log('you\'re in the template directory');
+  console.log(chalk.red('you\'re in the template directory'));
 
   const templatePath = '../cra-template/template';
   module.exports = {
