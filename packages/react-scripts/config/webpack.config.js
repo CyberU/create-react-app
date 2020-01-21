@@ -32,6 +32,7 @@ const getClientEnvironment = require('./env');
 const ModuleNotFoundPlugin = require('react-dev-utils/ModuleNotFoundPlugin');
 const ForkTsCheckerWebpackPlugin = require('react-dev-utils/ForkTsCheckerWebpackPlugin');
 const typescriptFormatter = require('react-dev-utils/typescriptFormatter');
+const chalk = require('chalk');
 // @remove-on-eject-begin
 const eslint = require('eslint');
 const getCacheIdentifier = require('react-dev-utils/getCacheIdentifier');
@@ -740,9 +741,9 @@ module.exports = function(webpackEnv) {
     performance: false,
   };
 
-  console.log('-------------- webpack config --------------');
-  console.log(webpackConfig);
-  console.log('------------end webpack config -------------');
+  console.log(chalk.blue('-------------- webpack config --------------'));
+  console.log(chalk.blue(webpackConfig));
+  console.log(chalk.blue('------------end webpack config -------------'));
 
   return webpackConfig;
 };
