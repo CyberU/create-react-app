@@ -1,6 +1,6 @@
 {
   "name": "cyberu-react-scripts",
-  "version": "3.3.12",
+  "version": "3.3.13",
   "description": "CyberU Configuration and scripts for Create React App.",
   "repository": {
     "type": "git",
@@ -80,6 +80,7 @@
     "url-loader": "2.3.0",
     "webpack": "4.41.2",
     "webpack-dev-server": "3.9.0",
+    "webpack-isomorphic-dev-middleware": "^4.1.0",
     "webpack-manifest-plugin": "2.2.0",
     "webpack-node-externals": "^1.7.2",
     "workbox-webpack-plugin": "4.3.1"

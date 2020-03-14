@@ -34,7 +34,12 @@ function ensureSlash(inputPath, needsSlash) {
 const getPublicUrl = appPackageJson =>
   envPublicUrl || require(appPackageJson).homepage;
 
-console.log(chalk.magenta('cyberu create react app \n PUBLIC_URL:', process.env.PUBLIC_URL));
+console.log(
+  chalk.magenta(
+    'cyberu create react app \n PUBLIC_URL:',
+    process.env.PUBLIC_URL
+  )
+);
 
 // We use `PUBLIC_URL` environment variable or "homepage" field to infer
 // "public path" at which the app is served.
@@ -86,6 +91,7 @@ module.exports = {
   appIndexJs: resolveModule(resolveApp, 'src/index'),
   appPackageJson: resolveApp('package.json'),
   appSrc: resolveApp('src'),
+  serverSrc: resolveOwn('server'),
   appTsConfig: resolveApp('tsconfig.json'),
   appJsConfig: resolveApp('jsconfig.json'),
   yarnLockFile: resolveApp('yarn.lock'),
@@ -109,6 +115,7 @@ module.exports = {
   appIndexJs: resolveModule(resolveApp, 'src/index'),
   appPackageJson: resolveApp('package.json'),
   appSrc: resolveApp('src'),
+  serverSrc: resolveOwn(`server`),
   appTsConfig: resolveApp('tsconfig.json'),
   appJsConfig: resolveApp('jsconfig.json'),
   yarnLockFile: resolveApp('yarn.lock'),
@@ -137,7 +144,7 @@ if (
   !reactScriptsLinked &&
   __dirname.indexOf(path.join('packages', 'react-scripts', 'config')) !== -1
 ) {
-  console.log(chalk.red('you\'re in the template directory'));
+  console.log(chalk.red("you're in the template directory"));
 
   const templatePath = '../cra-template/template';
   module.exports = {
